@@ -8,6 +8,7 @@ function App() {
 
   const [color, setColor] = useState("#9921ff");
   useEffect(()=>{
+    if (color.length > 7) document.body.classList.add("error");
     if (color.length != 7) return;
     if(colorRegex.test(color)){
       document.body.style.background = color;
@@ -23,6 +24,7 @@ function App() {
       <label className='container'>
          <input type="text" className="input-field" onChange={(evt) => onChange(evt, color, setColor)} id="colorInput" placeholder="Введите код цвета..." value={color}></input>
          <span className="result" id="result">{(()=>{
+          if (color.length > 7) return "Слишком много!";
           if (color.length !== 7) return ;
           if(colorRegex.test(color)){
             const a = parseInt(color.slice(1,3), 16);
