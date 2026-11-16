@@ -20,7 +20,7 @@ function App() {
 
   return (
     <>
-      <label className='container error'>
+      <label className='container'>
          <input type="text" className="input-field" onChange={(evt) => onChange(evt, color, setColor)} id="colorInput" placeholder="Введите код цвета..." value={color}></input>
          <span className="result" id="result">{(()=>{
           if (color.length !== 7) return ;
